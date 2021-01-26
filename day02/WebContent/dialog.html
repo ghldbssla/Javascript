@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	//이름, 국어점수, 영어점수, 수학점수 입력받은 후 
+	var name = prompt("이름");
+	var korean = Number(prompt("국어점수"));
+	var english = Number(prompt("영어점수"));
+	var math = Number(prompt("수학점수"));
+	
+	//이름 : 홍길동
+	//극어점수 : 100
+	//영어점수 : 90
+	//수학점수 : 80
+	document.write("이름 : "+name+"<br>");
+	document.write("국어점수 : "+korean+"<br>");
+	document.write("영어점수 : "+english+"<br>");
+	document.write("수학점수 : "+math+"<br>");
+	
+	//총점 : 270점
+	var sum = korean+english+math;
+	document.write("총점 : "+sum+"점<br>");
+	
+	//평균 : 90.000점
+	//toFixed(num) : 소수 num번째 자리까지 연산된결과를 보여줌
+	document.write("평균 : "+(sum/3).toFixed(3)+"점<br>");
+	
+	</script>
+</body>
+</html>

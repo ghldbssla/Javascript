@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hoisting</title>
+</head>
+<body>
+	hoisting이란 변수들의 선언 부분을 먼저 읽는다.
+	<script>
+		data = 10;
+		var data;
+		console.log('data',data);
+		
+		data2 = 20;
+		let data2;
+		console.log('data2',data2);
+		//초기화가 안되있으면 let을 사용하지 못함
+		//선언할 때 초기화를 시켜 줘야함
+	</script>
+</body>
+</html>
