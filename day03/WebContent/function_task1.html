@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+	rel="stylesheet">
+<link href="function_task.css" rel="stylesheet">
+<style>
+<!--원만들기-->#round {
+	text-align: center;
+	margin-left: 200px;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border: 2px solid #ba68c8;
+	font-size: 2.3rem;
+	background: yellow;
+	line-height: 50px;
+	font-family: 'Black Han Sans', sans-serif;
+}
+</style>
+</head>
+<body>
+	<div id="round">1</div>
+	<fieldset>
+		<legend>숫자를 한글로 변경</legend>
+		<textarea id="result" rows="3" cols="40">결과 표시 부분</textarea>
+		<br> <input onkeypress="if(event.keyCode==13){changeToHangle(input.value);}" type="text" placeholder="숫자를 입력해 주세요." id="input"><br>
+		<button onclick="changeToHangle(input.value)">변경</button>
+	</fieldset>
+</body>
+<!-- 태그객체.value : input태그에 사용자가 입력한 값 -->
+<!-- 문자열.charAt(인덱스 번호) : 해당 인덱스에 있는 문자 -->
+<!-- 문자열[인덱스번호] : 해당 인덱스에 있는 문자 -->
+<!-- 문자열.indexOf(값) : 해당 값이 있는 인덱스 번호 -->
+<!-- 변수 = 문자열.replace("기존값", "새로운 값") : 통채로가 변경된 문자열 값 -->
+<script>
+	function changeToHangle(number) {
+		'use strict';
+		//숫자면 참
+		if (!isNaN(number)) {
+			var data = number + "";
+			var hangle = "영일이삼사오육칠팔구";
+			var result = "";
+
+			for ( var i in data) {
+				if (data.charAt(i) == ".") {
+					if(data.charAt(0)=="."){
+						result += "영";
+					}
+					result += "점";
+					continue;
+				}
+				result += hangle[data.charAt(i)];
+			}
+			//숫자가 아니면 참
+		} else if (isNaN(number)) {
+			result = "숫자만 입력해 주세요.";
+		}
+		document.getElementById("result").innerHTML = result;
+		return result;
+	}
+	
+
+</script>
+</html>
