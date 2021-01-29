@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+	function Car(){
+		this.engineStart = function(){
+			console.log(this.brand+"열쇠로 시동 킴");
+		}
+		this.engineStop = function(){
+			console.log(this.brand+"열쇠로 시동 끔");
+		}
+	}
+	//프로퍼티 추가
+	Car.prototype.brand = "K7";
+	Car.prototype.color = "white";
+	Car.prototype.price = 7000;
+	
+	var momcar = new Car();
+	console.log("momcar의 brand : "+momcar.brand);
+	console.log("momcar의 color : "+momcar.color);
+	console.log("momcar의 price : "+momcar.price);
+	momcar.engineStart();
+	momcar.engineStop();
+	//상속
+	var mycar = Object.create(momcar);
+	console.log("mycar의 brand : "+mycar.brand);
+	console.log("mycar의 color : "+mycar.color);
+	console.log("mycar의 price : "+mycar.price);
+
+	
+	mycar.brand="Ferrari";
+	mycar.color="Red";
+	mycar.price=60000;
+	console.log("mycar의 brand : "+mycar.brand);
+	console.log("mycar의 color : "+mycar.color);
+	console.log("mycar의 price : "+mycar.price);
+	
+	//메소드 추가
+	mycar.roofOpen=function(){
+		console.log(this.brand+"뚜껑 열기");
+	}
+	mycar.roofClose=function(){
+		console.log(this.brand+"뚜껑 닫기");
+	}
+	
+	//오버라이딩
+	mycar.engineStart = function(){
+		console.log(this.brand+"음성으로 시동 킴");
+	}
+	mycar.engineStop = function(){
+		console.log(this.brand+"음성으로 시동 끔");
+	}
+	mycar.roofOpen();
+	mycar.engineStart();
+</script>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+	function Car(brand,color,price){
+		//(function intro();가 가장 먼저 실행됨
+		this.brand=brand;
+		this.color=color;
+		this.price=price;
+		
+		//프로퍼티에 함수를 담아버림
+		this.engineStart = function(){
+			console.log(this.brand+"시동 켜기");
+		};
+		this.engineStop = function(){
+			console.log(this.brand+"시동 끄기");
+		};
+		
+		//선언후 바로 사용된다. -> this.~~보다 위에 사용됨
+		//가장 먼저 사용되기 때문에 this.프로퍼티를 찾을 수 없다.
+		//따라서 간단한 출력 같은 기능을 넣어놓으면 됨
+		(function intro(){
+			console.log("브랜드 : "+this.brand);
+			console.log("색깔 : "+this.color);
+			console.log("가격 : "+this.price); 
+		})();
+		//이렇게 쓸 일이 거의 없음
+	}
+	
+	var mycar = new Car("Ferrari","Red",60000);
+	mycar.engineStart();
+</script>
+</html>

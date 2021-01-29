@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+	//객체 생성
+	var nabi={
+			 name : "멍멍이",
+			 owner : "정회윤",
+			 age : 1,
+			 weight : 3.1757
+	 };
+	
+ 	document.write("이름 : "+nabi.name+"<br>")
+ 	document.write("주인 : "+nabi.owner+"<br>")
+ 	//HashMap같이 key값으로 접근
+ 	document.write("나이 : "+nabi["age"]+"<br>")
+ 	//toFixed : 소숫점 자리수 반올림
+ 	document.write("몸무게 : "+nabi["weight"].toFixed(2)+"Kg<br>")
+ 	//객체에 프로퍼티 추가, 초기화
+ 	nabi.family="푸들";
+ 	document.write("종 : "+nabi.family+"<br>")
+ 	//객체에 프로퍼티 추가와 초기화, 사용을 동시에 함
+ 	//(위의 코드와 결과는 같음)
+ 	document.write("종 : "+(nabi.family="푸들")+"<br>")
+ 	
+ 	//프로퍼티와 안의 값을 출력해준다.
+ 	//배열이었다면 인덱스 번호를 가져왔지만
+ 	//객체에서는 프로퍼티 변수를 가져온다.(i)
+ 	//따라서 nabi[i]는 nabi라는 객체안의 -> 프로퍼티 변수(i)의 -> 값을 의미한다.
+ 	for (var i in nabi) {
+ 		console.log(i,":",nabi[i]);
+		
+	}
+ 	
+</script>
+</html>

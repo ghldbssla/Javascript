@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="myform" id="myform">
+		<p>
+			<label>네이버<input type="radio" value="naver" name="site" class="site" checked></label>
+		</p>
+		<p>
+			<label>구글<input type="radio" value="google" name="site" class="site"></label>
+		</p>
+		<p>
+			<label>다음<input type="radio" value="daum" name="site" class="site"></label>
+		</p>
+		<p>
+			<input type="button" onclick="sendit();" value="이동">
+		</p>
+	</form>
+</body>
+<script>
+	function sendit(){
+		//위의 form요소를 가져옴(.name)
+		//CSS에서는 name을 사용하지 못함
+		var form = document.myform;
+		if(form.site.value=="naver"){
+			location.href="https://www.naver.com";
+		}else if(form.site.value=="google"){
+			location.href="https://www.google.com";
+		}else if(form.site.value=="daum"){
+			location.href="https://www.daum.net";
+		}
+	}	
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

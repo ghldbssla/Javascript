@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>window open</title>
+</head>
+<body>
+	<a href="javascript:load('https://www.naver.com')">네이버</a>
+	<a href="javascript:load('https://www.google.com')">구글</a>
+	<a href="javascript:load('https://www.daum.net')">다음</a>
+	<a href="javascript:closeNewWindow();">새로 열린 창 닫기</a><br>
+	<button onclick="openAndClose();">네이버 열고 닫기</button><br>
+	<button onclick="openAndClose(timer2);">멈추기</button><br>
+</body>
+<script>
+	var newWindow = null;
+	var timer1=null;
+	var timer2=null;
+	function openAndClose(){
+		//setInterval(동작,시간) : 시간마다 동작해라
+		timer2=setInterval(load("https://www.naver.com"),5000);
+	}
+	
+	//url키는 함수(5초이따 꺼짐)
+	function load(url) {
+		newWindow = window.open(url,'','left=300,top=300,width=400,height=400;',true);
+		//5000ms=5초지나면 꺼져라.
+		timer1 = setTimeout('closeNewWindow()',4000);
+	}
+	
+	//켜진 url끄는 함수(사용자가 종료했으면 타이머 초기화)
+	function closeNewWindow() {
+		if (newWindow == null || newWindow.closed) {
+			return;
+		} else {
+			newWindow.close();
+			//close를 하면 timer를 window 함수인 
+			//clearTimeout으로 timer를 없애준다.
+			clearTimeout(timer1);
+		}
+	}
+</script>
+</html>

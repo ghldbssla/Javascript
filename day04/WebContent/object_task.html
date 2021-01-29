@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="object_task.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+	rel="stylesheet">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<fieldset>
+		<legend>자동차 주행</legend>
+		<textarea id="state">현재 상태 표시</textarea>
+		<img id="img" src="main.png"> 
+		<input type="text"
+			onkeypress="if(event.keyCode==13){check(text1.value);}" id="text1"
+			placeholder="비밀번호 입력">
+		<button id="engineStart" onclick="start();">시동 켜기</button>
+		<button id="engineStop" onclick="stop();">시동 끄기</button>
+		<button id="reset" onclick="reset();">초기화</button>
+	</fieldset>
+</body>
+<script>
+	var cnt = 0;
+	var engine = false;
+	var logon = false;
+	var pw = prompt("자동차 초기 비밀번호입력");
+	check = function check(string) {
+		'use strict';
+		var result = "";
+		if (string == pw) {
+			logon=true;
+			const txt = document.getElementById("text1");
+			txt.style.visibility = "hidden";
+			
+		console.log(cnt + "logon");
+		} else {
+			cnt = cnt + 1;
+			if (cnt == 3) {
+				result = "경찰 출동";
+				const vis = document.getElementById("engineStart");
+				vis.style.display = "none";
+
+				const viss = document.getElementById("engineStop");
+				viss.style.display = "none";
+
+				const txt = document.getElementById("text1");
+				txt.style.visibility = "hidden";
+				
+				var img = document.getElementById("img");
+				img.src = "police.png";
+
+				cnt = 0;
+			} else {
+				result = "비밀번호 오류 : " + (cnt) + "회";
+			}
+		}
+		document.getElementById("state").innerHTML = result;
+		return result;
+	};
+	//시동키기
+	function start(){
+		const txt = document.getElementById("state");
+		txt.style.visibility = "visible";
+	 	if(logon==true){
+	 		
+	 		if(engine==false){
+	 			result="시동 켜짐";
+	 			engine=true;
+	 			var img = document.getElementById("img");
+				img.src = "engine_start.gif";
+	 		}else{
+	 			result="이미 켜져 있습니다.";
+	 		}
+	 	}
+		document.getElementById("state").innerHTML = result;
+		return result;
+	}
+	//시동끄기
+	function stop(){
+	 	if(logon==true){
+	 		if(engine==true){
+	 			result="시동 꺼짐";
+	 			var img = document.getElementById("img");
+				img.src = "engine_stop.gif";
+	 			engine=false;
+	 		}else{
+	 			result="이미 꺼져 있습니다.";
+	 		}
+	 	}
+		document.getElementById("state").innerHTML = result;
+		return result;
+	}
+	//초기화
+	function reset(){
+		history.go(0);
+	}
+	
+</script>
+</html>
