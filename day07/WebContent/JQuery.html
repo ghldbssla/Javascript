@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+</head>
+<body>
+	<input type="text" class="num" value="1">
+	<br>
+	<input type="text" class="num" value="2">
+	<br>
+	<input type="text" class="num" value="3">
+	<br>
+	<input type="button" onclick="changeJQ();" value="변경(제이쿼리)">
+	<input type="button" onclick="$('.num').css('border','blue solid 3px');" value="변경(제이쿼리)">
+	<input type="button" onclick="changeJS();" value="변경(자바스크립트)">
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- 여기서 부터는 jquery를 사용할 수 있음 -->
+<script>
+	function changeJS(){
+		var textList = document.getElementsByClassName("num");
+		for (var i = 0; i < textList.length; i++) {
+			textList[i].style.border="red solid 3px";
+		}
+	}
+	function changeJQ(){
+		//JQuery의 $('.num').css('border','red solid 10px')는
+		//javascript의 
+		/* var textList = document.getElementsByClassName("num");
+		for (var i = 0; i < textList.length; i++) {
+			textList[i].style.border="red solid 3px";
+		} 와 같다.*/
+		//아래의 문법을 그냥 onclick에 넣어도 된다.
+		$('.num').css('border','red solid 10px');
+	}
+	//반복문 반복문반복문반복문반복문반복문반복문반복문반복문반복문반복문반복문반복문반복문반복문반복문반복문
+	//일반적인 반복문
+	$(".num").each(function(index,item){
+		console.log(index+" : "+item.value);
+	})
+	//index를 쓰지 않는 반복문
+	$(".num").each(function(){
+		console.log($(this).val());
+	})
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<ul>
+		<li name="odd">하나</li>
+		<li class="even">둘</li>
+		<li name="odd">셋</li>
+		<li class="even">넷</li>
+		<li name="odd">다섯</li>
+	</ul>
+	<button onclick="oddChange();">홀수 li 빨간색으로 변경</button>
+	<button onclick="evenChange();">짝수 li 파란색으로 변경</button>
+	<button onclick="changToNumber();">숫자로 바꾸기</button>
+	<button onclick="reset();">초기화</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	function oddChange(){
+		$("li[name='odd']").css('color','red');
+	}
+	function evenChange(){
+		$(".even").css('color','blue');
+	}
+	function reset(){
+		$("li").css('color','black');
+	}
+	function changToNumber(){
+		$("li").each(function(index,item){
+			//둘다 결과가 같음
+			item.innerHTML=index+1;
+			//$(this).text(index+1);
+		});
+	}
+</script>
+</html>
