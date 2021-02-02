@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>HTML 태그 이름을 이용한 선택</h1>
+	<ul>
+		<li>첫번째 아이템</li>
+		<li>두번째 아이템</li>
+		<li>세번째 아이템</li>
+		<li>네번째 아이템</li>
+		<li>다섯번째 아이템</li>
+	</ul>
+</body>
+<script>
+	var list = document.getElementsByTagName("li");
+	for (var i = 0; i < list.length; i++) {
+		//list[i].style.color="red";
+		list.item(i).style.color="red";
+	}
+</script>
+</html>

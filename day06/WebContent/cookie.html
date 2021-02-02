@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>방문 카운트</title>
+<script>
+	function setCookie(key,value){
+		var cookieStr=key+"="+escape(value);
+		document.cookie=cookieStr;
+	}
+	function getCookie(key){
+		var cookieList=document.cookie.split(";");
+		for (var i = 0; i < cookieList.length; i++) {
+			//cookie는 내장함수
+			//key1=value1; key2=value2; ...
+			var entry = cookieList[i].trim();
+			var datas = entry.split("="); 
+			console.log(datas)
+			if(datas[0]==key){
+				return unescape(datas[1]);
+			}
+		}
+	}
+</script>
+</head>
+<body>
+</body>
+<script>
+	var username = getCookie("username");
+	var count = getCookie("count");
+	if(username==null){
+		count=0;
+		username=prompt("이름을 입력하세요");
+		setCookie("username",username);
+	}
+	count++;
+	setCookie("count",count);
+	alert("어서오세요"+username+"님("+count+"회 방문)")
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<nav id="node">
+			<ul>
+				<li>내용1</li>
+				<li>내용2</li>
+				<li>내용3</li>
+			</ul>
+		</nav>
+	</div>
+</body>
+<script>
+	window.onload=function(){
+		var node = document.getElementById("node");
+		//<div></div>요소 전체가 가져와짐
+		//console.log(node.parentNode);
+		
+		//하나의 리스트에 <ul>의 전부가 들어감(0번방에)
+		console.log(node.children[0]);
+		
+		//<ul>객체 안의 0번째 인덱스 번호에 있는 li - 첫번째 li-내용1
+		console.log(node.children[0].children[0]);
+		
+		//0번째 인덱스인 첫번째 li, 다음 li 내용2
+		console.log(node.children[0].children[0].nextElementSibling);
+		
+		//2번째 인덱스인 세번째 li 내용3의 이전 li 내용2
+		console.log(node.children[0].children[2].previousElementSibling);
+		
+		//-노드에 대한 정보 -노드에 대한 정보 -노드에 대한 정보 -노드에 대한 정보-노드에 대한 정보
+		
+		//firstChild는 text를 먼저 찾기때문에 ul과 li 사이의 text를 찾는다.-->undefined
+		//내용1이 나옴 첫번째 li의 nodeValue
+		console.log(node.children[0].children[0].firstChild.nodeValue);
+		console.log(node.children[0].children[0].firstChild.nodeType);
+		console.log(nodeid);
+	}
+</script>
+</html>

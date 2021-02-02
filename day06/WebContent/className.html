@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>클래스,Name 이름을 이용한 선택</h1>
+	<ul>
+		<li class="odd">첫번째 아이템</li>
+		<li name="even">두번째 아이템</li>
+		<li class="odd">세번째 아이템</li>
+		<li name="even">네번째 아이템</li>
+		<li class="odd">다섯번째 아이템</li>
+	</ul>
+	<hr>
+	<button onclick="change();">변경</button>
+</body>
+<script>
+	var classList=document.getElementsByClassName("odd");
+	var nameList=document.getElementsByName("even");
+	function change(){
+		for (var i = 0; i < classList.length; i++) {
+			classList.item(i).style.color="red";
+			}
+		for (var i = 0; i < nameList.length; i++) {
+			nameList[i].style.color="green";
+			}
+	}
+</script>
+</html>
